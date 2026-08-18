@@ -1,5 +1,16 @@
 import os
 
+class Livros:
+    acervo_de_livros = []
+    def __init__(self, título, autor, ano):
+
+        self.título = título
+        self.autor = autor
+        self.ano = ano
+        self.disponivel = True
+        Livros.acervo_de_livros.append(self)
+
+
 
 def menu():
     print('''       Menu da MIDIATECA
