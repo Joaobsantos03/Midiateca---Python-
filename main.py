@@ -1,4 +1,7 @@
 import os
+def limpar_tela():
+    input('pressione uma tecla para continuar: ')
+    os.system('cls')
 
 class Livros:
     acervo_de_livros = []
@@ -20,7 +23,11 @@ class Livros:
 
     @classmethod
     def listar_livros(cls):
-        print(f'{'Titulo'.ljust(25)} | {'Autor'.ljust(25)} | {'Ano'.ljust(25)} | {'Disponivel'}')
+        cabecalho = f'{'Titulo'.ljust(25)} | {'Autor'.ljust(25)} | {'Ano'.ljust(25)} | {'Disponivel'}'
+
+        print(cabecalho)
+        print('-' * len(cabecalho))
+
         for livro in cls.acervo_de_livros:
             print(livro)
     
@@ -32,11 +39,19 @@ def menu():
     
     Escolha uma opção:
     1 - Cadastrar item
-    2 - Listar catálogo
+    2 - Listar catálogo de livros
     3 - Alugar item
     4 - Devolver item
     5 - Sair
     ''')
+
+def listar_catálogo_de_livros():
+    os.system('cls')
+    print('LISTA DE LIVROS')
+    Livros.listar_livros()
+    print()
+    input('Clique para voltar ao menu')
+    os.system('cls')
 
 def iniciar_programa():
     while True:
@@ -47,7 +62,7 @@ def iniciar_programa():
         if opção_escolhida == 1:
             cadastrar_item()
         elif opção_escolhida == 2:
-            listar_catálogo()
+            listar_catálogo_de_livros()
         elif opção_escolhida == 3:
             alugar_item()
         elif opção_escolhida == 4:
@@ -55,4 +70,4 @@ def iniciar_programa():
         elif opção_escolhida == 5:
             break
 
-Livros.listar_livros()
+iniciar_programa()
