@@ -2,6 +2,35 @@ import os
 def limpar_tela():
     input('pressione uma tecla para continuar: ')
     os.system('cls')
+class Filmes:
+
+    acervo_de_filmes = []
+
+    def __init__(self, titulo, genero, ano, duracao):
+
+        self.titulo = titulo.title()
+        self.genero = genero.upper()
+        self.ano = ano
+        self.duracao = duracao
+        self._disponivel = True
+        Filmes.acervo_de_filmes.append(self)
+
+    @property
+    def disponivel(self):
+        return '✓' if self._disponivel else '☓'
+
+    def __str__(self):
+            return f'{self.titulo.ljust(25)} | {self.genero.ljust(25)} | {str(self.ano).ljust(25)} | {self.duracao.ljust(25)} | {self.disponivel}'
+
+    @classmethod
+    def listar_filmes(cls):
+        cabecalho = f'{'Titulo'.ljust(25)} | {'Gênero'.ljust(25)} | {'Ano'.ljust(25)} | {'Duração'.ljust(25)} | {'Disponivel'}'
+    
+        print(cabecalho)
+        print('-' * len(cabecalho))
+        for filmes in cls.acervo_de_filmes:
+            print(filmes)
+    
 
 class Jogos:
 
@@ -12,7 +41,7 @@ class Jogos:
         self.titulo = titulo.title()
         self.gênero = gênero.upper()
         self.ano = ano
-        self.desenvolvedora = desenvolvedora.title
+        self.desenvolvedora = desenvolvedora.title()
         self._disponivel = True
         Jogos.acervo_de_jogos.append(self)
 
@@ -21,7 +50,7 @@ class Jogos:
             return '✓' if self._disponivel else '☓'
 
     def __str__(self):
-        return f'{self.titulo.ljust(25)} | {self.gênero.ljust(25)} | {str(self.ano).ljust(25)} | {self.gênero.ljust(25)} | {self.disponivel}'
+        return f'{self.titulo.ljust(25)} | {self.gênero.ljust(25)} | {str(self.ano).ljust(25)} | {self.desenvolvedora.ljust(25)} | {self.disponivel}'
 
     @classmethod
     def listar_jogos(cls):
@@ -66,6 +95,10 @@ pop = Livros('michael', 'tom', 1982)
 
 mario = Jogos('Super mario', 'Plataforma', 1985, 'nintendo')
 zelda = Jogos('The legend of zelda', 'rpg', 1998, 'nintendo')
+
+homem_de_ferro = Filmes('homem de ferro', 'ação/ficção científica', 2008, '2h 6m')
+shrek_2 = Filmes('shrek 2', 'comédia/fantasia', 2001, '1h 29m')
+
 def menu():
     print('''       Menu da MIDIATECA
     
@@ -73,40 +106,52 @@ def menu():
     1 - Cadastrar item
     2 - Listar catálogo de livros
     3 - Listar catálogo de jogos
-    4 - Devolver item
-    5 - Sair
+    4 - Listar catálogo de filmes
+    5 - Emprestar item
+    6 - Devolver item
+    7 - Sair
     ''')
 
 def listar_produto(escolha):
+    os.system('cls')
     if escolha == 1:
-        os.system('cls')
         print('LISTA DE LIVROS')
         Livros.listar_livros()
-        print()
     elif escolha == 2:
-        os.system('cls')
         print('LISTA DE JOGOS')
         Jogos.listar_jogos()
-        print()
+    elif escolha == 3:
+        print('LISTA DE FILMES')
+        Filmes.listar_filmes()
+    print()
     input('clique para retornar ao menu')
     os.system('cls')
 
 
 def iniciar_programa():
     while True:
-        menu()
 
-        opção_escolhida = int(input('Escolha uma opção: '))
+        try:
+            menu()
+            opção_escolhida = int(input('Escolha uma opção: '))
 
-        if opção_escolhida == 1:
-            cadastrar_item()
-        elif opção_escolhida == 2:
-            listar_produto(1)
-        elif opção_escolhida == 3:
-            listar_produto(2)
-        elif opção_escolhida == 4:
-            devolver_item()
-        elif opção_escolhida == 5:
-            break
-
+            if opção_escolhida == 1:
+                cadastrar_item()
+            elif opção_escolhida == 2:
+                listar_produto(1)
+            elif opção_escolhida == 3:
+                listar_produto(2)
+            elif opção_escolhida == 4:
+                listar_produto(3)
+            elif opção_escolhida == 5:
+                Emprestar_item()
+            elif opção_escolhida == 6:
+                devolver_item()
+            else:
+                break
+        except:
+            os.system('cls')
+            print('Digite o número de uma das opções')
+            input('Aperte um botão para voltar ao menu')
+            os.system('cls')
 iniciar_programa()
