@@ -2,15 +2,30 @@ import os
 
 class Livros:
     acervo_de_livros = []
+
     def __init__(self, título, autor, ano):
 
         self.título = título
         self.autor = autor
         self.ano = ano
-        self.disponivel = True
+        self._disponivel = True
         Livros.acervo_de_livros.append(self)
 
+    @property
+    def disponivel(self):
+        return '✓' if self._disponivel else '☓'
 
+    def __str__(self):
+        return f'{self.título.ljust(25)} | {self.autor.ljust(25)} | {str(self.ano).ljust(25)} | {self.disponivel}'
+
+    @classmethod
+    def listar_livros(cls):
+        print(f'{'Titulo'.ljust(25)} | {'Autor'.ljust(25)} | {'Ano'.ljust(25)} | {'Disponivel'}')
+        for livro in cls.acervo_de_livros:
+            print(livro)
+    
+rock = Livros('fred', 'john', 1967)
+pop = Livros('michael', 'tom', 1982)
 
 def menu():
     print('''       Menu da MIDIATECA
@@ -40,5 +55,4 @@ def iniciar_programa():
         elif opção_escolhida == 5:
             break
 
-iniciar_programa()
-
+Livros.listar_livros()
