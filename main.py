@@ -51,6 +51,33 @@ def listar_produto(escolha):
     input('clique para retornar ao menu')
     os.system('cls')
 
+
+def processar_emprestimo(acervo, listar_itens, metodo_emprestar, nome_midia):
+    os.system('cls')
+
+    listar_itens()
+
+    item_escolhido = input(f'Escreva o nome do {nome_midia} que deseja emprestar: ')
+
+    for item in acervo:
+        if item.titulo.lower() == item_escolhido.lower():
+
+            if item._disponivel:
+                metodo_emprestar(item)
+                print(f'{nome_midia.upper()} EMPRESTADO COM SUCESSO')
+                input('Pressione ENTER para continuar ')
+                os.system('cls')
+            else:
+                print(f'Este {nome_midia} já está emprestado')
+                input('Pressione ENTER para tentar novamente ')
+            break
+
+    else:
+        print(f'{nome_midia.capitalize()} não encontrado')
+        input('Pressione ENTER para tentar novamente ')
+        os.system('cls')
+    
+
 def emprestar_item():
     os.system('cls')
     while True:
@@ -63,57 +90,13 @@ def emprestar_item():
         try:
             escolha_do_cliente = int(input('Qual midia você quer emprestar?'))
             if escolha_do_cliente == 1:
-                os.system('cls')
-                Livros.listar_livros()
-                livro_escolhido = input('escreva o nome do livro que deseja emprestar:')
-                for livro in Livros.acervo_de_livros:
-                    if livro.titulo.lower() == livro_escolhido.lower():
-                        if livro._disponivel:
-                            livro.emprestar_livro()
-                            print('LIVRO EMPRESTADO COM SUCESSO')
-                            input('Pressione ENTER para voltar ao menu ')
-                            os.system('cls')
-                            break
-                else:
-                    os.system('cls')
-                    print('este livro não pode ser emprestado ou não pode ser encontrado')
-                    input('Pressione ENTER tentar novamente ')
-                    os.system('cls')
+                processar_emprestimo(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro')
 
             elif escolha_do_cliente == 2:
-                os.system('cls')
-                Jogos.listar_jogos()
-                jogo_escolhido = input('escreva o nome do jogo que deseja emprestar:')
-                for jogo in Jogos.acervo_de_jogos:
-                    if jogo.titulo.lower() == jogo_escolhido.lower():
-                        if jogo._disponivel:
-                            jogo.emprestar_jogo()
-                            print('JOGO EMPRESTADO COM SUCESSO')
-                            input('Pressione ENTER para voltar ao menu ')
-                            os.system('cls')
-                            break
-                else:
-                    os.system('cls')
-                    print('este jogo não pode ser emprestado ou não pode ser encontrado')
-                    input('Pressione ENTER tentar novamente ')
-                    os.system('cls')
+                processar_emprestimo(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo')
+
             elif escolha_do_cliente == 3:
-                os.system('cls')
-                Filmes.listar_filmes()
-                filme_escolhido = input('escreva o nome do filme que deseja emprestar:')
-                for filme in Filmes.acervo_de_filmes:
-                    if filme.titulo.lower() == filme_escolhido.lower():
-                        if filme._disponivel:
-                            filme.emprestar_filme()
-                            print('FILME EMPRESTADO COM SUCESSO')
-                            input('Pressione ENTER para voltar ao menu ')
-                            os.system('cls')
-                            break
-                else:
-                    os.system('cls')
-                    print('este Filme não pôde ser emprestado ou não pôde ser encontrado')
-                    input('Pressione ENTER tentar novamente ')
-                    os.system('cls')
+                processar_emprestimo(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme')
 
             elif escolha_do_cliente == 4:
                 os.system('cls')
