@@ -1,67 +1,12 @@
+from modelos.Livros import Livros
+from modelos.Filmes import Filmes
+from modelos.Jogos import Jogos
 import os
+
+
 def limpar_tela():
     input('pressione uma tecla para continuar: ')
     os.system('cls')
-class Filmes:
-
-    acervo_de_filmes = []
-
-    def __init__(self, titulo, genero, ano, duracao):
-
-        self.titulo = titulo.title()
-        self.genero = genero.upper()
-        self.ano = ano
-        self.duracao = duracao
-        self._disponivel = True
-        Filmes.acervo_de_filmes.append(self)
-
-    @property
-    def disponivel(self):
-        return '✓' if self._disponivel else '☓'
-
-    def __str__(self):
-            return f'{self.titulo.ljust(25)} | {self.genero.ljust(25)} | {str(self.ano).ljust(25)} | {self.duracao.ljust(25)} | {self.disponivel}'
-
-    @classmethod
-    def listar_filmes(cls):
-        cabecalho = f'{'Titulo'.ljust(25)} | {'Gênero'.ljust(25)} | {'Ano'.ljust(25)} | {'Duração'.ljust(25)} | {'Disponivel'}'
-    
-        print(cabecalho)
-        print('-' * len(cabecalho))
-        for filmes in cls.acervo_de_filmes:
-            print(filmes)
-    
-
-class Jogos:
-
-    acervo_de_jogos = []
-
-    def __init__(self, titulo, gênero, ano, desenvolvedora):
-
-        self.titulo = titulo.title()
-        self.gênero = gênero.upper()
-        self.ano = ano
-        self.desenvolvedora = desenvolvedora.title()
-        self._disponivel = True
-        Jogos.acervo_de_jogos.append(self)
-
-    @property
-    def disponivel(self):
-            return '✓' if self._disponivel else '☓'
-
-    def __str__(self):
-        return f'{self.titulo.ljust(25)} | {self.gênero.ljust(25)} | {str(self.ano).ljust(25)} | {self.desenvolvedora.ljust(25)} | {self.disponivel}'
-
-    @classmethod
-    def listar_jogos(cls):
-        cabecalho = f'{'titulo'.ljust(25)} | {'Gênero'.ljust(25)} | {'Ano'.ljust(25)} | {'Desenvolvedora'.ljust(25)} | {'Disponivel'}'
-
-        print(cabecalho)
-        print('-' * len(cabecalho))
-        for jogos in cls.acervo_de_jogos:
-            print(jogos)
-
-class Livros:
 
     acervo_de_livros = []
 
