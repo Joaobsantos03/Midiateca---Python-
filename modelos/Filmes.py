@@ -26,3 +26,6 @@ class Filmes:
         print('-' * len(cabecalho))
         for filmes in cls.acervo_de_filmes:
             print(filmes)
+
+    def emprestar_filme(self):
+        self._disponivel = False

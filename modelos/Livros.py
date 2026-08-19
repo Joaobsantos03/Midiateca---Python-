@@ -26,3 +26,6 @@ class Livros:
 
         for livro in cls.acervo_de_livros:
             print(livro)
+
+    def emprestar_livro(self):
+        self._disponivel = False

@@ -26,3 +26,6 @@ class Jogos:
         print('-' * len(cabecalho))
         for jogos in cls.acervo_de_jogos:
             print(jogos)
+
+    def emprestar_jogo(self):
+        self._disponivel = False

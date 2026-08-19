@@ -3,40 +3,12 @@ from modelos.Filmes import Filmes
 from modelos.Jogos import Jogos
 import os
 
-
 def limpar_tela():
     input('pressione uma tecla para continuar: ')
     os.system('cls')
 
-    acervo_de_livros = []
-
-    def __init__(self, titulo, autor, ano):
-
-        self.titulo = titulo
-        self.autor = autor
-        self.ano = ano
-        self._disponivel = True
-        Livros.acervo_de_livros.append(self)
-
-    @property
-    def disponivel(self):
-        return '✓' if self._disponivel else '☓'
-
-    def __str__(self):
-        return f'{self.titulo.ljust(25)} | {self.autor.ljust(25)} | {str(self.ano).ljust(25)} | {self.disponivel}'
-
-    @classmethod
-    def listar_livros(cls):
-        cabecalho = f'{'Titulo'.ljust(25)} | {'Autor'.ljust(25)} | {'Ano'.ljust(25)} | {'Disponivel'}'
-
-        print(cabecalho)
-        print('-' * len(cabecalho))
-
-        for livro in cls.acervo_de_livros:
-            print(livro)
-    
-rock = Livros('fred', 'john', 1967)
-pop = Livros('michael', 'tom', 1982)
+Harry_Potter = Livros('Harry Potter', 'J. K. Rowling', 1997)
+senhor = Livros('O Senhor dos Aneis', 'J. R. R. Tolkien', 1954)
 
 mario = Jogos('Super mario', 'Plataforma', 1985, 'nintendo')
 zelda = Jogos('The legend of zelda', 'rpg', 1998, 'nintendo')
@@ -45,7 +17,14 @@ homem_de_ferro = Filmes('homem de ferro', 'ação/ficção científica', 2008, '
 shrek_2 = Filmes('shrek 2', 'comédia/fantasia', 2001, '1h 29m')
 
 def menu():
-    print('''       Menu da MIDIATECA
+    print('''       
+            ███╗   ███╗██╗██████╗ ██╗ █████╗ ████████╗███████╗ ██████╗ █████╗ 
+            ████╗ ████║██║██╔══██╗██║██╔══██╗╚══██╔══╝██╔════╝██╔════╝██╔══██╗
+            ██╔████╔██║██║██║  ██║██║███████║   ██║   █████╗  ██║     ███████║
+            ██║╚██╔╝██║██║██║  ██║██║██╔══██║   ██║   ██╔══╝  ██║     ██╔══██║
+            ██║ ╚═╝ ██║██║██████╔╝██║██║  ██║   ██║   ███████╗╚██████╗██║  ██║
+            ╚═╝     ╚═╝╚═╝╚═════╝ ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝
+                                                                  
     
     Escolha uma opção:
     1 - Cadastrar item
@@ -72,6 +51,81 @@ def listar_produto(escolha):
     input('clique para retornar ao menu')
     os.system('cls')
 
+def emprestar_item():
+    os.system('cls')
+    while True:
+        print('''Midias disponiveis:
+        1) Livros
+        2) Jogos
+        3) Filmes
+        4) Voltar ao menu
+        ''')
+        try:
+            escolha_do_cliente = int(input('Qual midia você quer emprestar?'))
+            if escolha_do_cliente == 1:
+                os.system('cls')
+                Livros.listar_livros()
+                livro_escolhido = input('escreva o nome do livro que deseja emprestar:')
+                for livro in Livros.acervo_de_livros:
+                    if livro.titulo.lower() == livro_escolhido.lower():
+                        if livro._disponivel:
+                            livro.emprestar_livro()
+                            print('LIVRO EMPRESTADO COM SUCESSO')
+                            input('Pressione ENTER para voltar ao menu ')
+                            os.system('cls')
+                            break
+                else:
+                    os.system('cls')
+                    print('este livro não pode ser emprestado ou não pode ser encontrado')
+                    input('Pressione ENTER tentar novamente ')
+                    os.system('cls')
+
+            elif escolha_do_cliente == 2:
+                os.system('cls')
+                Jogos.listar_jogos()
+                jogo_escolhido = input('escreva o nome do jogo que deseja emprestar:')
+                for jogo in Jogos.acervo_de_jogos:
+                    if jogo.titulo.lower() == jogo_escolhido.lower():
+                        if jogo._disponivel:
+                            jogo.emprestar_jogo()
+                            print('JOGO EMPRESTADO COM SUCESSO')
+                            input('Pressione ENTER para voltar ao menu ')
+                            os.system('cls')
+                            break
+                else:
+                    os.system('cls')
+                    print('este jogo não pode ser emprestado ou não pode ser encontrado')
+                    input('Pressione ENTER tentar novamente ')
+                    os.system('cls')
+            elif escolha_do_cliente == 3:
+                os.system('cls')
+                Filmes.listar_filmes()
+                filme_escolhido = input('escreva o nome do filme que deseja emprestar:')
+                for filme in Filmes.acervo_de_filmes:
+                    if filme.titulo.lower() == filme_escolhido.lower():
+                        if filme._disponivel:
+                            filme.emprestar_filme()
+                            print('FILME EMPRESTADO COM SUCESSO')
+                            input('Pressione ENTER para voltar ao menu ')
+                            os.system('cls')
+                            break
+                else:
+                    os.system('cls')
+                    print('este Filme não pôde ser emprestado ou não pôde ser encontrado')
+                    input('Pressione ENTER tentar novamente ')
+                    os.system('cls')
+
+            elif escolha_do_cliente == 4:
+                os.system('cls')
+                break
+            else:
+                print('Essa não é uma opção valida')
+                input('Pressione ENTER para tentar novamente ')
+                os.system('cls')
+        except ValueError:
+            print('Essa não é uma opção valida')
+            input('Pressione ENTER para tentar novamente ')
+            os.system('cls')
 
 def iniciar_programa():
     while True:
@@ -89,14 +143,17 @@ def iniciar_programa():
             elif opção_escolhida == 4:
                 listar_produto(3)
             elif opção_escolhida == 5:
-                Emprestar_item()
+                emprestar_item()
             elif opção_escolhida == 6:
                 devolver_item()
-            else:
+            elif opção_escolhida == 7:
                 break
-        except:
-            os.system('cls')
+            else:
+                print('Digite o número de uma das opções')
+                input('Pressione ENTER para voltar ao menu')
+                os.system('cls')
+        except ValueError:
             print('Digite o número de uma das opções')
-            input('Aperte um botão para voltar ao menu')
+            input('Pressione ENTER para voltar ao menu')
             os.system('cls')
 iniciar_programa()
