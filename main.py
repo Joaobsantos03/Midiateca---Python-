@@ -1,7 +1,9 @@
 from modelos.Livros import Livros
 from modelos.Filmes import Filmes
 from modelos.Jogos import Jogos
+
 import os
+largura = os.get_terminal_size().columns
 
 def limpar_tela():
     input('pressione uma tecla para continuar: ')
@@ -48,8 +50,75 @@ def listar_produto(escolha):
         print('LISTA DE FILMES')
         Filmes.listar_filmes()
     print()
-    input('clique para retornar ao menu')
+    input('clique para ENTER retornar ao menu')
     os.system('cls')
+
+def cadastro_de_itens(tipo_de_midia):
+    os.system('cls')
+    if tipo_de_midia == 1:
+        titulo_do_livro_usuario = input('Qual o titulo do seu livro? ')
+        print('|')
+        autor_do_livro_usuario = input('Qual o autor do seu livro? ')
+        print('|')
+        ano_do_livro_usuario = (input('Qual ano seu livro foi publicado? '))
+        print('|')
+        livro_do_usuario = Livros(titulo_do_livro_usuario, autor_do_livro_usuario, ano_do_livro_usuario)
+        print(f'Seu livro "{livro_do_usuario.titulo}" foi cadastrado com sucesso no sistema')
+        input('Pressione ENTER para voltar ao menu')
+    elif tipo_de_midia == 2:
+        titulo_do_jogo_do_usuario = input('Qual o titulo do seu jogo? ')
+        print('|')
+        genero_do_jogo_do_usuario = input('Qual o genero do seu jogo? ')
+        print('|')
+        ano_do_jogo_do_usuario = (input('Qual o ano que seu jogo foi lançado? '))
+        print('|')
+        desenvolvedora_do_jogo_do_usuario = input('Qual a desenvolvedora do seu jogo? ')
+        print('|')
+        jogo_do_usuario = Jogos(titulo_do_jogo_do_usuario, genero_do_jogo_do_usuario, ano_do_jogo_do_usuario, desenvolvedora_do_jogo_do_usuario)
+        print(f'Seu jogo "{jogo_do_usuario.titulo}" foi cadastrado com sucesso no sistema')
+        input('Pressione ENTER para voltar ao menu')
+    elif tipo_de_midia == 3:
+        titulo_do_filme_do_usuario = input('Qual o titulo do seu filme? ')
+        print('|')
+        genero_do_filme_do_usuario = input('Qual o genero do seu filme? ')
+        print('|')
+        ano_do_filme_do_usuario = input('Qual o ano que seu filme foi lançado? ')
+        print('|')
+        durucao_do_filme_do_usuario = input('Qual a duração do seu filme? ')
+        print('|')
+        filme_do_usuario = Filmes(titulo_do_filme_do_usuario, genero_do_filme_do_usuario, ano_do_filme_do_usuario, durucao_do_filme_do_usuario)
+        print(f'Seu filme "{filme_do_usuario.titulo}" foi cadastrado com sucesso no sistema')
+        input('Pressione ENTER para voltar ao menu')
+    os.system('cls')
+def menu_de_cadastro_de_itens():
+
+    os.system('cls')
+    while True:
+        print('MENU DE CADASTRO DE ITENS'.center(largura, '-'))
+        print('''ESCOLHA UMA OPÇÃO DE CADASTRO:
+        1) CADASTRAR LIVROS
+        2) CADASTRAR JOGOS
+        3) CADASTRAR FILMES
+        4) SAIR
+        ''')
+
+        escolha_de_opção = int(input('Digite o numero da opção desejada '))
+
+        if escolha_de_opção == 1:
+            cadastro_de_itens(1)
+        elif escolha_de_opção == 2:
+            cadastro_de_itens(2)
+        elif escolha_de_opção == 3:
+            cadastro_de_itens(3)
+        elif escolha_de_opção == 4:
+            os.system('cls')
+            break
+        else:
+            print('opção invalida')
+            input('Aperte ENTER para voltar ao menu')
+            os.system('cls')
+
+
 
 
 def processar_emprestimo(acervo, listar_itens, metodo_emprestar, nome_midia):
@@ -118,7 +187,7 @@ def iniciar_programa():
             opção_escolhida = int(input('Escolha uma opção: '))
 
             if opção_escolhida == 1:
-                cadastrar_item()
+                menu_de_cadastro_de_itens()
             elif opção_escolhida == 2:
                 listar_produto(1)
             elif opção_escolhida == 3:
