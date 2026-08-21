@@ -19,6 +19,7 @@ homem_de_ferro = Filmes('homem de ferro', 'ação/ficção científica', 2008, '
 shrek_2 = Filmes('shrek 2', 'comédia/fantasia', 2001, '1h 29m')
 
 def menu():
+    os.system('cls')
     print('''       
             ███╗   ███╗██╗██████╗ ██╗ █████╗ ████████╗███████╗ ██████╗ █████╗ 
             ████╗ ████║██║██╔══██╗██║██╔══██╗╚══██╔══╝██╔════╝██╔════╝██╔══██╗
@@ -33,9 +34,8 @@ def menu():
     2 - Listar catálogo de livros
     3 - Listar catálogo de jogos
     4 - Listar catálogo de filmes
-    5 - Emprestar item
-    6 - Devolver item
-    7 - Sair
+    5 - Menu de empréstimo de itens
+    6 - Sair
     ''')
 
 def listar_produto(escolha):
@@ -119,55 +119,124 @@ def menu_de_cadastro_de_itens():
             os.system('cls')
 
 
-
-
-def processar_emprestimo(acervo, listar_itens, metodo_emprestar, nome_midia):
+def processar_movimentacao(acervo, listar_itens, metodo_emprestar, nome_midia, devolver, metodo_devolver):
     os.system('cls')
 
     listar_itens()
 
-    item_escolhido = input(f'Escreva o nome do {nome_midia} que deseja emprestar: ')
+    item_escolhido = input(f'Escreva o nome do {nome_midia} que deseja emprestar ou devolver: ')
+    if not devolver:
+        for item in acervo:
+            if item.titulo.lower() == item_escolhido.lower():
 
-    for item in acervo:
-        if item.titulo.lower() == item_escolhido.lower():
+                if item._disponivel:
+                    metodo_emprestar(item)
+                    print(f'{nome_midia.upper()} EMPRESTADO COM SUCESSO')
+                    input('Pressione ENTER para continuar ')
+                    os.system('cls')
+                else:
+                    print(f'Este {nome_midia} já está emprestado')
+                    input('Pressione ENTER para tentar novamente ')
+                break
+        else:
+            print(f'{nome_midia.capitalize()} não encontrado')
+            input('Pressione ENTER para tentar novamente ')
+            os.system('cls')
 
-            if item._disponivel:
-                metodo_emprestar(item)
-                print(f'{nome_midia.upper()} EMPRESTADO COM SUCESSO')
-                input('Pressione ENTER para continuar ')
-                os.system('cls')
-            else:
-                print(f'Este {nome_midia} já está emprestado')
-                input('Pressione ENTER para tentar novamente ')
-            break
+    elif devolver:
+        for item in acervo:
+                if item.titulo.lower() == item_escolhido.lower():
+        
+                    if not item._disponivel:
+                        metodo_devolver(item)
+                        print(f'{nome_midia.upper()} DEVOLVIDO COM SUCESSO')
+                        input('Pressione ENTER para continuar ')
+                        os.system('cls')
+                    else:
+                        print(f'Este {nome_midia} não está emprestado')
+                        input('pressione ENTER para tentar novamente')
+                    break
+        else:
+            print(f'{nome_midia.capitalize()} não encontrado')
+            input('Pressione ENTER para tentar novamente ')
+            os.system('cls')
 
-    else:
-        print(f'{nome_midia.capitalize()} não encontrado')
-        input('Pressione ENTER para tentar novamente ')
-        os.system('cls')
-    
+
 
 def emprestar_item():
     os.system('cls')
     while True:
-        print('''Midias disponiveis:
-        1) Livros
-        2) Jogos
-        3) Filmes
-        4) Voltar ao menu
+        print('''MENU DE EMPRÉSTIMOS:
+1) EMPRESTAR ITEM
+2) DEVOLVER ITEM
+3) VOLTAR AO MENU
         ''')
         try:
-            escolha_do_cliente = int(input('Qual midia você quer emprestar?'))
+            escolha_do_cliente = int(input('Qual opção você deseja: '))
+
             if escolha_do_cliente == 1:
-                processar_emprestimo(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro')
-
+                while True:
+                    os.system('cls')
+                    print('''Midias disponiveis para empréstimo:
+1) Livros
+2) Jogos
+3) Filmes
+4) Voltar ao menu
+                            ''')
+                    try:
+                        escolha_de_emprestimo = int(input('Qual midia você quer emprestar?'))
+                        if escolha_de_emprestimo == 1:
+                            processar_movimentacao(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro', False, Livros.devolver_livro)
+            
+                        elif escolha_de_emprestimo == 2:
+                            processar_movimentacao(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo', False, Jogos.devolver_jogo)
+            
+                        elif escolha_de_emprestimo == 3:
+                            processar_movimentacao(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme', False, Filmes.devolver_filme)
+            
+                        elif escolha_de_emprestimo == 4:
+                            os.system('cls')
+                            break
+                        else:
+                            print('Essa não é uma opção valida')
+                            input('Pressione ENTER para tentar novamente ')
+                            os.system('cls')
+                    except ValueError:
+                        print('Essa não é uma opção valida')
+                        input('Pressione ENTER para tentar novamente ')
+                        os.system('cls')
             elif escolha_do_cliente == 2:
-                processar_emprestimo(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo')
-
+                while True:
+                    os.system('cls')
+                    print('''Midias disponiveis para devolução:
+    1) Livros
+    2) Jogos
+    3) Filmes
+    4) Voltar ao menu
+                            ''')
+                    try:
+                        escolha_de_devolucao = int(input('Qual midia você quer devolver?'))
+                        if escolha_de_devolucao == 1:
+                            processar_movimentacao(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro', True, Livros.devolver_livro)
+            
+                        elif escolha_de_devolucao == 2:
+                            processar_movimentacao(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo', True, Jogos.devolver_jogo)
+            
+                        elif escolha_de_devolucao == 3:
+                            processar_movimentacao(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme', True, Filmes.devolver_filme)
+            
+                        elif escolha_de_devolucao == 4:
+                            os.system('cls')
+                            break
+                        else:
+                            print('Essa não é uma opção valida')
+                            input('Pressione ENTER para tentar novamente ')
+                            os.system('cls')
+                    except ValueError:
+                        print('Essa não é uma opção valida')
+                        input('Pressione ENTER para tentar novamente ')
+                        os.system('cls')
             elif escolha_do_cliente == 3:
-                processar_emprestimo(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme')
-
-            elif escolha_do_cliente == 4:
                 os.system('cls')
                 break
             else:
@@ -175,9 +244,9 @@ def emprestar_item():
                 input('Pressione ENTER para tentar novamente ')
                 os.system('cls')
         except ValueError:
-            print('Essa não é uma opção valida')
-            input('Pressione ENTER para tentar novamente ')
-            os.system('cls')
+                    print('Essa não é uma opção valida')
+                    input('Pressione ENTER para tentar novamente ')
+                    os.system('cls')
 
 def iniciar_programa():
     while True:
@@ -197,8 +266,8 @@ def iniciar_programa():
             elif opção_escolhida == 5:
                 emprestar_item()
             elif opção_escolhida == 6:
-                devolver_item()
-            elif opção_escolhida == 7:
+                os.system('cls')
+                print('Até mais...')
                 break
             else:
                 print('Digite o número de uma das opções')

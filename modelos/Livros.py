@@ -29,3 +29,6 @@ class Livros:
 
     def emprestar_livro(self):
         self._disponivel = False
+
+    def devolver_livro(self):
+        self._disponivel = True

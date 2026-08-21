@@ -29,3 +29,6 @@ class Jogos:
 
     def emprestar_jogo(self):
         self._disponivel = False
+
+    def devolver_jogo(self):
+            self._disponivel = True

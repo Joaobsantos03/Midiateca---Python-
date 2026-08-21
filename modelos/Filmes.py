@@ -29,3 +29,6 @@ class Filmes:
 
     def emprestar_filme(self):
         self._disponivel = False
+
+    def devolver_filme(self):
+        self._disponivel = True
