@@ -1,22 +1,14 @@
-class Jogos:
+from modelos.midia import Midia
 
-    acervo_de_jogos = []
+class Jogos(Midia):
 
-    def __init__(self, titulo, gênero, ano, desenvolvedora):
-
-        self.titulo = titulo.title()
-        self.gênero = gênero.upper()
-        self.ano = ano
-        self.desenvolvedora = desenvolvedora.title()
-        self._disponivel = True
-        Jogos.acervo_de_jogos.append(self)
-
-    @property
-    def disponivel(self):
-            return '✓' if self._disponivel else '☓'
+    def __init__(self, titulo, ano, genero, desenvolvedora):
+         super().__init__(titulo, ano)
+         self.genero = genero
+         self.desenvolvedora = desenvolvedora
 
     def __str__(self):
-        return f'{self.titulo.ljust(25)} | {self.gênero.ljust(25)} | {str(self.ano).ljust(25)} | {self.desenvolvedora.ljust(25)} | {self.disponivel}'
+        return super().__str__() + f'{self.genero.ljust(25)} | {self.desenvolvedora.ljust(25)}  | {self.disponivel}'
 
     @classmethod
     def listar_jogos(cls):
@@ -24,11 +16,7 @@ class Jogos:
 
         print(cabecalho)
         print('-' * len(cabecalho))
-        for jogos in cls.acervo_de_jogos:
-            print(jogos)
+        for jogos in  cls.acervo_de_midia:
+            if isinstance(jogos,Jogos):
+                print(jogos)
 
-    def emprestar_jogo(self):
-        self._disponivel = False
-
-    def devolver_jogo(self):
-            self._disponivel = True

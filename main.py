@@ -9,14 +9,14 @@ def limpar_tela():
     input('pressione uma tecla para continuar: ')
     os.system('cls')
 
-Harry_Potter = Livros('Harry Potter', 'J. K. Rowling', 1997)
-senhor = Livros('O Senhor dos Aneis', 'J. R. R. Tolkien', 1954)
+Harry_Potter = Livros('Harry Potter', 1997, 'J. K. Rowling')
+senhor = Livros('O Senhor dos Aneis', 1954, 'J. R. R. Tolkien')
 
-mario = Jogos('Super mario', 'Plataforma', 1985, 'nintendo')
-zelda = Jogos('The legend of zelda', 'rpg', 1998, 'nintendo')
+mario = Jogos('Super mario', 1995, 'Plataforma', 'nintendo')
+zelda = Jogos('The legend of zelda', 1998, 'Rpg', 'nintendo')
 
-homem_de_ferro = Filmes('homem de ferro', 'ação/ficção científica', 2008, '2h 6m')
-shrek_2 = Filmes('shrek 2', 'comédia/fantasia', 2001, '1h 29m')
+homem_de_ferro = Filmes('homem de ferro', 2008, 'ação/ficção científica', '2h 6m')
+shrek_2 = Filmes('shrek 2', 2001, 'comédia/fantasia', '1h 29m')
 
 def menu():
     os.system('cls')
