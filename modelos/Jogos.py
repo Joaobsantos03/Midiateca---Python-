@@ -12,11 +12,12 @@ class Jogos(Midia):
 
     @classmethod
     def listar_jogos(cls):
-        cabecalho = f'{'titulo'.ljust(25)} | {'Gênero'.ljust(25)} | {'Ano'.ljust(25)} | {'Desenvolvedora'.ljust(25)} | {'Disponivel'}'
+        cabecalho = f'{'titulo'.ljust(25)} | {'Ano'.ljust(25)} | {'Gênero'.ljust(25)} | {'Desenvolvedora'.ljust(25)} | {'Disponivel'}'
 
         print(cabecalho)
         print('-' * len(cabecalho))
-        for jogos in  cls.acervo_de_midia:
+
+        for jogos in cls.acervo_de_midia:
             if isinstance(jogos,Jogos):
                 print(jogos)
 

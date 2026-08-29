@@ -119,7 +119,7 @@ def menu_de_cadastro_de_itens():
             os.system('cls')
 
 
-def processar_movimentacao(acervo, listar_itens, metodo_emprestar, nome_midia, devolver, metodo_devolver):
+def processar_movimentacao(acervo, tipo_de_midia, listar_itens, nome_midia, devolver):
     os.system('cls')
 
     listar_itens()
@@ -127,17 +127,18 @@ def processar_movimentacao(acervo, listar_itens, metodo_emprestar, nome_midia, d
     item_escolhido = input(f'Escreva o nome do {nome_midia} que deseja emprestar ou devolver: ')
     if not devolver:
         for item in acervo:
-            if item.titulo.lower() == item_escolhido.lower():
+            if isinstance(item,tipo_de_midia):
+                if item.titulo.lower() == item_escolhido.lower():
 
-                if item._disponivel:
-                    metodo_emprestar(item)
-                    print(f'{nome_midia.upper()} EMPRESTADO COM SUCESSO')
-                    input('Pressione ENTER para continuar ')
-                    os.system('cls')
-                else:
-                    print(f'Este {nome_midia} já está emprestado')
-                    input('Pressione ENTER para tentar novamente ')
-                break
+                    if item._disponivel:
+                        item.emprestar_midia()
+                        print(f'{nome_midia.upper()} EMPRESTADO COM SUCESSO')
+                        input('Pressione ENTER para continuar ')
+                        os.system('cls')
+                    else:
+                        print(f'Este {nome_midia} já está emprestado')
+                        input('Pressione ENTER para tentar novamente ')
+                    break
         else:
             print(f'{nome_midia.capitalize()} não encontrado')
             input('Pressione ENTER para tentar novamente ')
@@ -145,17 +146,18 @@ def processar_movimentacao(acervo, listar_itens, metodo_emprestar, nome_midia, d
 
     elif devolver:
         for item in acervo:
-                if item.titulo.lower() == item_escolhido.lower():
-        
-                    if not item._disponivel:
-                        metodo_devolver(item)
-                        print(f'{nome_midia.upper()} DEVOLVIDO COM SUCESSO')
-                        input('Pressione ENTER para continuar ')
-                        os.system('cls')
-                    else:
-                        print(f'Este {nome_midia} não está emprestado')
-                        input('pressione ENTER para tentar novamente')
-                    break
+                if isinstance(item,tipo_de_midia):
+                    if item.titulo.lower() == item_escolhido.lower():
+            
+                        if not item._disponivel:
+                            item.devolver_midia()
+                            print(f'{nome_midia.upper()} DEVOLVIDO COM SUCESSO')
+                            input('Pressione ENTER para continuar ')
+                            os.system('cls')
+                        else:
+                            print(f'Este {nome_midia} não está emprestado')
+                            input('pressione ENTER para tentar novamente')
+                        break
         else:
             print(f'{nome_midia.capitalize()} não encontrado')
             input('Pressione ENTER para tentar novamente ')
@@ -186,13 +188,13 @@ def emprestar_item():
                     try:
                         escolha_de_emprestimo = int(input('Qual midia você quer emprestar?'))
                         if escolha_de_emprestimo == 1:
-                            processar_movimentacao(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro', False, Livros.devolver_livro)
+                            processar_movimentacao(Livros.acervo_de_midia, Livros, Livros.listar_livros, 'Livro', False)
             
                         elif escolha_de_emprestimo == 2:
-                            processar_movimentacao(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo', False, Jogos.devolver_jogo)
+                            processar_movimentacao(Jogos.acervo_de_midia, Jogos, Jogos.listar_jogos, 'Jogo', False)
             
                         elif escolha_de_emprestimo == 3:
-                            processar_movimentacao(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme', False, Filmes.devolver_filme)
+                            processar_movimentacao(Filmes.acervo_de_midia, Filmes, Filmes.listar_filmes, 'Filme', False)
             
                         elif escolha_de_emprestimo == 4:
                             os.system('cls')
@@ -217,13 +219,13 @@ def emprestar_item():
                     try:
                         escolha_de_devolucao = int(input('Qual midia você quer devolver?'))
                         if escolha_de_devolucao == 1:
-                            processar_movimentacao(Livros.acervo_de_livros, Livros.listar_livros, Livros.emprestar_livro,'Livro', True, Livros.devolver_livro)
+                            processar_movimentacao(Livros.acervo_de_midia, Livros, Livros.listar_livros, 'Livro', True)
             
                         elif escolha_de_devolucao == 2:
-                            processar_movimentacao(Jogos.acervo_de_jogos, Jogos.listar_jogos, Jogos.emprestar_jogo, 'jogo', True, Jogos.devolver_jogo)
+                            processar_movimentacao(Jogos.acervo_de_midia, Jogos, Jogos.listar_jogos, 'jogo', True)
             
                         elif escolha_de_devolucao == 3:
-                            processar_movimentacao(Filmes.acervo_de_filmes, Filmes.listar_filmes, Filmes.emprestar_filme, 'filme', True, Filmes.devolver_filme)
+                            processar_movimentacao(Filmes.acervo_de_midia, Filmes, Filmes.listar_filmes, 'filme', True)
             
                         elif escolha_de_devolucao == 4:
                             os.system('cls')

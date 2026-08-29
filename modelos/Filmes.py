@@ -16,6 +16,7 @@ class Filmes(Midia):
     
         print(cabecalho)
         print('-' * len(cabecalho))
+
         for filmes in cls.acervo_de_midia:
             if isinstance(filmes,Filmes):
                 print(filmes)
