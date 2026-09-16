@@ -12,7 +12,8 @@ class Midia:
         return '✓' if self._disponivel else '☓'
 
     def __str__(self):
-        return f'{self.titulo.ljust(35)} | {str(self.ano).ljust(35)} |'
+        titulo = self.titulo if len(self.titulo) <= 30 else self.titulo[:27] + '...'
+        return f'{titulo.ljust(35)} | {str(self.ano).ljust(35)} |'
 
     def emprestar_midia(self):
         self._disponivel = False
