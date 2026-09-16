@@ -8,11 +8,11 @@ class Jogos(Midia):
          self.desenvolvedora = desenvolvedora
 
     def __str__(self):
-        return super().__str__() + f'{self.genero.ljust(25)} | {self.desenvolvedora.ljust(25)}  | {self.disponivel}'
+        return super().__str__() + f'{self.genero.ljust(35)} | {self.desenvolvedora.ljust(35)}  | {self.disponivel}'
 
     @classmethod
     def listar_jogos(cls):
-        cabecalho = f'{'titulo'.ljust(25)} | {'Ano'.ljust(25)} | {'Gênero'.ljust(25)} | {'Desenvolvedora'.ljust(25)} | {'Disponivel'}'
+        cabecalho = f'{'titulo'.ljust(35)} | {'Ano'.ljust(35)} | {'Gênero'.ljust(35)} | {'Desenvolvedora'.ljust(35)} | {'Disponivel'}'
 
         print(cabecalho)
         print('-' * len(cabecalho))

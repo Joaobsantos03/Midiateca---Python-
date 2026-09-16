@@ -8,11 +8,11 @@ class Filmes(Midia):
          self.duracao = duracao
 
     def __str__(self):
-        return super().__str__() + f'{self.genero.ljust(25)} | {str(self.duracao).ljust(25)} | {self.disponivel}' 
+        return super().__str__() + f'{self.genero.ljust(35)} | {str(self.duracao).ljust(35)} | {self.disponivel}' 
 
     @classmethod
     def listar_filmes(cls):
-        cabecalho = f'{'Titulo'.ljust(25)} | {'Ano'.ljust(25)} | {'Gênero'.ljust(25)} | {'Duração'.ljust(25)} | {'Disponivel'}'
+        cabecalho = f'{'Titulo'.ljust(35)} | {'Ano'.ljust(35)} | {'Gênero'.ljust(35)} | {'Duração'.ljust(35)} | {'Disponivel'}'
     
         print(cabecalho)
         print('-' * len(cabecalho))

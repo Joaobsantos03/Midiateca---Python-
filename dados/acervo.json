@@ -1,0 +1,462 @@
+[
+    {
+        "tipo": "livro",
+        "titulo": "Harry Potter",
+        "ano": 1997,
+        "autor": "J. K. Rowling",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "O Senhor dos Aneis",
+        "ano": 1954,
+        "autor": "J. R. R. Tolkien",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "O Hobbit",
+        "ano": 1937,
+        "autor": "J. R. R. Tolkien",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "1984",
+        "ano": 1949,
+        "autor": "George Orwell",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "A Revolucao dos Bichos",
+        "ano": 1945,
+        "autor": "George Orwell",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Dom Casmurro",
+        "ano": 1899,
+        "autor": "Machado de Assis",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "O Pequeno Principe",
+        "ano": 1943,
+        "autor": "Antoine de Saint-Exupery",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Duna",
+        "ano": 1965,
+        "autor": "Frank Herbert",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Fahrenheit 451",
+        "ano": 1953,
+        "autor": "Ray Bradbury",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Frankenstein",
+        "ano": 1818,
+        "autor": "Mary Shelley",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Dracula",
+        "ano": 1897,
+        "autor": "Bram Stoker",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "O Iluminado",
+        "ano": 1977,
+        "autor": "Stephen King",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "It",
+        "ano": 1986,
+        "autor": "Stephen King",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Neuromancer",
+        "ano": 1984,
+        "autor": "William Gibson",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Fundacao",
+        "ano": 1951,
+        "autor": "Isaac Asimov",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Eu, Robo",
+        "ano": 1950,
+        "autor": "Isaac Asimov",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Admiravel Mundo Novo",
+        "ano": 1932,
+        "autor": "Aldous Huxley",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "O Guia do Mochileiro das Galaxias",
+        "ano": 1979,
+        "autor": "Douglas Adams",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Percy Jackson e o Ladrao de Raios",
+        "ano": 2005,
+        "autor": "Rick Riordan",
+        "disponivel": true
+    },
+    {
+        "tipo": "livro",
+        "titulo": "Jogos Vorazes",
+        "ano": 2008,
+        "autor": "Suzanne Collins",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Super mario",
+        "ano": 1995,
+        "genero": "Plataforma",
+        "desenvolvedora": "nintendo",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "The legend of zelda",
+        "ano": 1998,
+        "genero": "Rpg",
+        "desenvolvedora": "nintendo",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Minecraft",
+        "ano": 2011,
+        "genero": "Sandbox",
+        "desenvolvedora": "Mojang",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "The Witcher 3",
+        "ano": 2015,
+        "genero": "Rpg",
+        "desenvolvedora": "CD Projekt Red",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Red Dead Redemption 2",
+        "ano": 2018,
+        "genero": "Ação/aventura",
+        "desenvolvedora": "Rockstar Games",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Grand Theft Auto V",
+        "ano": 2013,
+        "genero": "Ação/aventura",
+        "desenvolvedora": "Rockstar Games",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Dark Souls",
+        "ano": 2011,
+        "genero": "Rpg/ação",
+        "desenvolvedora": "FromSoftware",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Elden Ring",
+        "ano": 2022,
+        "genero": "Rpg/ação",
+        "desenvolvedora": "FromSoftware",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "God of War",
+        "ano": 2018,
+        "genero": "Ação/aventura",
+        "desenvolvedora": "Santa Monica Studio",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "The Last of Us",
+        "ano": 2013,
+        "genero": "Ação/aventura",
+        "desenvolvedora": "Naughty Dog",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Portal 2",
+        "ano": 2011,
+        "genero": "Puzzle",
+        "desenvolvedora": "Valve",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Half-Life 2",
+        "ano": 2004,
+        "genero": "Fps",
+        "desenvolvedora": "Valve",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Resident Evil 4",
+        "ano": 2005,
+        "genero": "Terror/ação",
+        "desenvolvedora": "Capcom",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Street Fighter II",
+        "ano": 1991,
+        "genero": "Luta",
+        "desenvolvedora": "Capcom",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Hollow Knight",
+        "ano": 2017,
+        "genero": "Metroidvania",
+        "desenvolvedora": "Team Cherry",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Stardew Valley",
+        "ano": 2016,
+        "genero": "Simulação/Rpg",
+        "desenvolvedora": "ConcernedApe",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Terraria",
+        "ano": 2011,
+        "genero": "Sandbox/aventura",
+        "desenvolvedora": "Re-Logic",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Doom",
+        "ano": 1993,
+        "genero": "Fps",
+        "desenvolvedora": "id Software",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Metal Gear Solid",
+        "ano": 1998,
+        "genero": "Ação/furtividade",
+        "desenvolvedora": "Konami",
+        "disponivel": true
+    },
+    {
+        "tipo": "jogo",
+        "titulo": "Chrono Trigger",
+        "ano": 1995,
+        "genero": "Rpg",
+        "desenvolvedora": "Square",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "homem de ferro",
+        "ano": 2008,
+        "genero": "ação/ficção científica",
+        "duracao": "2h 6m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "shrek 2",
+        "ano": 2001,
+        "genero": "comédia/fantasia",
+        "duracao": "1h 29m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Interestelar",
+        "ano": 2014,
+        "genero": "ficção científica/drama",
+        "duracao": "2h 49m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "O Poderoso Chefao",
+        "ano": 1972,
+        "genero": "crime/drama",
+        "duracao": "2h 55m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Clube da Luta",
+        "ano": 1999,
+        "genero": "drama/suspense",
+        "duracao": "2h 19m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Matrix",
+        "ano": 1999,
+        "genero": "ação/ficção científica",
+        "duracao": "2h 16m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "O Senhor dos Aneis: A Sociedade do Anel",
+        "ano": 2001,
+        "genero": "fantasia/aventura",
+        "duracao": "2h 58m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Pulp Fiction",
+        "ano": 1994,
+        "genero": "crime/drama",
+        "duracao": "2h 34m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "O Iluminado",
+        "ano": 1980,
+        "genero": "terror/suspense",
+        "duracao": "2h 26m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Alien",
+        "ano": 1979,
+        "genero": "terror/ficção científica",
+        "duracao": "1h 57m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Blade Runner",
+        "ano": 1982,
+        "genero": "ficção científica/suspense",
+        "duracao": "1h 57m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "De Volta para o Futuro",
+        "ano": 1985,
+        "genero": "ficção científica/comédia",
+        "duracao": "1h 56m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Jurassic Park",
+        "ano": 1993,
+        "genero": "aventura/ficção científica",
+        "duracao": "2h 7m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Gladiador",
+        "ano": 2000,
+        "genero": "ação/drama",
+        "duracao": "2h 35m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Cidade de Deus",
+        "ano": 2002,
+        "genero": "crime/drama",
+        "duracao": "2h 10m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Batman: O Cavaleiro das Trevas",
+        "ano": 2008,
+        "genero": "ação/crime",
+        "duracao": "2h 32m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Parasita",
+        "ano": 2019,
+        "genero": "drama/suspense",
+        "duracao": "2h 12m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Whiplash",
+        "ano": 2014,
+        "genero": "drama/musical",
+        "duracao": "1h 46m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Toy Story",
+        "ano": 1995,
+        "genero": "animação/comédia",
+        "duracao": "1h 21m",
+        "disponivel": true
+    },
+    {
+        "tipo": "filme",
+        "titulo": "Mad Max: Estrada da Furia",
+        "ano": 2015,
+        "genero": "ação/ficção científica",
+        "duracao": "2h",
+        "disponivel": true
+    }
+]

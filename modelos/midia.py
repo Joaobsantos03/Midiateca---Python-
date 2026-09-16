@@ -12,7 +12,7 @@ class Midia:
         return '✓' if self._disponivel else '☓'
 
     def __str__(self):
-        return f'{self.titulo.ljust(25)} | {str(self.ano).ljust(25)} |'
+        return f'{self.titulo.ljust(35)} | {str(self.ano).ljust(35)} |'
 
     def emprestar_midia(self):
         self._disponivel = False
