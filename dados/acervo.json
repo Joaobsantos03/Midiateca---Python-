@@ -11,7 +11,7 @@
         "titulo": "O Senhor dos Aneis",
         "ano": 1954,
         "autor": "J. R. R. Tolkien",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "livro",
@@ -39,7 +39,7 @@
         "titulo": "Dom Casmurro",
         "ano": 1899,
         "autor": "Machado de Assis",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "livro",
@@ -74,7 +74,7 @@
         "titulo": "Dracula",
         "ano": 1897,
         "autor": "Bram Stoker",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "livro",
@@ -109,7 +109,7 @@
         "titulo": "Eu, Robo",
         "ano": 1950,
         "autor": "Isaac Asimov",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "livro",
@@ -161,7 +161,7 @@
         "ano": 2011,
         "genero": "Sandbox",
         "desenvolvedora": "Mojang",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "jogo",
@@ -193,7 +193,7 @@
         "ano": 2011,
         "genero": "Rpg/ação",
         "desenvolvedora": "FromSoftware",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "jogo",
@@ -225,7 +225,7 @@
         "ano": 2011,
         "genero": "Puzzle",
         "desenvolvedora": "Valve",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "jogo",
@@ -281,7 +281,7 @@
         "ano": 1993,
         "genero": "Fps",
         "desenvolvedora": "id Software",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "jogo",
@@ -313,7 +313,7 @@
         "ano": 2001,
         "genero": "comédia/fantasia",
         "duracao": "1h 29m",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "filme",
@@ -361,7 +361,7 @@
         "ano": 1994,
         "genero": "crime/drama",
         "duracao": "2h 34m",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "filme",
@@ -385,7 +385,7 @@
         "ano": 1982,
         "genero": "ficção científica/suspense",
         "duracao": "1h 57m",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "filme",
@@ -441,7 +441,7 @@
         "ano": 2014,
         "genero": "drama/musical",
         "duracao": "1h 46m",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "tipo": "filme",

@@ -1,7 +1,7 @@
 from modelos.Livros import Livros
 from modelos.Filmes import Filmes
 from modelos.Jogos import Jogos
-from serviços.acervo import carregar_acervo
+from serviços.acervo import carregar_acervo, salvar_acervo
 
 import os
 largura = os.get_terminal_size().columns
@@ -156,8 +156,6 @@ def processar_movimentacao(acervo, tipo_de_midia, listar_itens, nome_midia, devo
             input('Pressione ENTER para tentar novamente ')
             os.system('cls')
 
-
-
 def emprestar_item():
     os.system('cls')
     while True:
@@ -262,6 +260,7 @@ def iniciar_programa():
                 emprestar_item()
             elif opção_escolhida == 6:
                 os.system('cls')
+                salvar_acervo()
                 print('Até mais...')
                 break
             else:
@@ -274,3 +273,5 @@ def iniciar_programa():
             os.system('cls')
 carregar_acervo()
 iniciar_programa()
+
+
